@@ -1,0 +1,14 @@
+<!-- blog/templates/blog/supprimer_article.html -->
+
+{% extends 'blog/base.html' %} {% block title %}Supprimer un Article{% endblock
+%} {% block content %}
+<h2>Confirmation de la suppression de l'article</h2>
+<p>Êtes-vous sûr de vouloir supprimer l'article "{{ article.titre }}" ?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirmer la suppression</button>
+</form>
+
+<p><a href="{% url 'liste_articles' %}">Retour à la liste des articles</a></p>
+{% endblock %}

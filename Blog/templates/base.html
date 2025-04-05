@@ -1,0 +1,28 @@
+<!-- blog/templates/blog/base.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Mon Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenue sur le blog</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'liste_articles' %}">Accueil</a></li>
+          <li><a href="{% url 'creer_article' %}">Créer un Article</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer>
+      <p>&copy; 2025 Mon Blog - Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

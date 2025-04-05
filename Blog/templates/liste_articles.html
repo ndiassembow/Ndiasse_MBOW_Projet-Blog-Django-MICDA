@@ -1,0 +1,25 @@
+<!-- blog/templates/blog/liste_articles.html -->
+
+{% extends 'blog/base.html' %} {% block title %}Liste des Articles{% endblock %}
+{% block content %}
+<h2>Liste des Articles</h2>
+
+{% if articles %}
+<ul>
+  {% for article in articles %}
+  <li>
+    <h3>
+      <a href="{% url 'detail_article' article.id %}">{{ article.titre }}</a>
+    </h3>
+    <p>
+      Publié par {{ article.auteur }} le {{ article.date_creation|date:"d M Y"
+      }}
+    </p>
+    <p>{{ article.contenu|slice:":100" }}...</p>
+    <p>Status : {{ article.get_statut_display }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Aucun article n'a été publié.</p>
+{% endif %} {% endblock %}

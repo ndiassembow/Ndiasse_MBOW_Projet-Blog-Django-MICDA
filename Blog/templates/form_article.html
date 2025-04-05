@@ -1,0 +1,15 @@
+<!-- blog/templates/blog/form_article.html -->
+
+{% extends 'blog/base.html' %} {% block title %}Créer un Article{% endblock %}
+{% block content %}
+<h2>
+  {% if object %}Modifier un Article{% else %}Créer un Nouvel Article{% endif %}
+</h2>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Envoyer</button>
+</form>
+
+<p><a href="{% url 'liste_articles' %}">Retour à la liste des articles</a></p>
+{% endblock %}
